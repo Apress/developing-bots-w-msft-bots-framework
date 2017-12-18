@@ -1,0 +1,44 @@
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Bot Application.dll.config
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Bot Application.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Bot Application.pdb
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Autofac.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Chronic.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.Bot.Builder.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.Bot.Connector.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.Rest.ClientRuntime.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Newtonsoft.Json.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\System.Net.Http.Formatting.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\System.Web.Http.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\System.Web.Http.WebHost.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Autofac.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.Bot.Builder.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.Bot.Connector.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\Newtonsoft.Json.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\System.Net.Http.Formatting.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\System.Web.Http.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\System.Web.Http.WebHost.xml
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\it\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\nl\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\pt-BR\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\obj\Debug\EmailChannel.csproj.CoreCompileInputs.cache
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\obj\Debug\Bot Application.dll
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\obj\Debug\Bot Application.pdb
+C:\BotFramework\Code\chapter4-channels\Channels\EmailChannel\obj\Debug\EmailChannel.csprojResolveAssemblyReference.cache

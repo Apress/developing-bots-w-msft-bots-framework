@@ -1,0 +1,41 @@
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Bot Application.dll.config
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Bot Application.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Bot Application.pdb
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Autofac.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Chronic.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.Bot.Builder.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.Bot.Connector.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.Rest.ClientRuntime.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Newtonsoft.Json.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\System.Net.Http.Formatting.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\System.Web.Http.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\System.Web.Http.WebHost.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Autofac.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.Bot.Builder.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.Bot.Connector.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\Newtonsoft.Json.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\System.Net.Http.Formatting.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\System.Web.Http.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\System.Web.Http.WebHost.xml
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\obj\Debug\SlackChannel.csproj.CoreCompileInputs.cache
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\obj\Debug\Bot Application.dll
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\obj\Debug\Bot Application.pdb
+C:\BotFramework\Code\chapter4-channels\Channels\SlackChannel\obj\Debug\SlackChannel.csprojResolveAssemblyReference.cache

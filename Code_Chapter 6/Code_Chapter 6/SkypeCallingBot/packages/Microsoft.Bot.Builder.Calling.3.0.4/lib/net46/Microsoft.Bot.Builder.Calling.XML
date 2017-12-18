@@ -1,0 +1,1552 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Bot.Builder.Calling</name>
+    </assembly>
+    <members>
+        <member name="E:Microsoft.Bot.Builder.Calling.CallingBotService.OnIncomingCallReceived">
+            <summary>
+            Event raised when bot receives incoming call
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.CallingBotService.OnAnswerCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of Answer action. If the operation was successful the call is established
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.CallingBotService.OnHangupCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of Hangup action
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.CallingBotService.OnPlayPromptCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of PlayPrompt action
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.CallingBotService.OnRecognizeCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of Recognize action
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.CallingBotService.OnRecordCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of Record action
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.CallingBotService.OnRejectCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of Reject action
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.CallingBotService.OnWorkflowValidationFailed">
+            <summary>
+            Event raised when specified workflow fails to be validated by Bot platform
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingBotService.#ctor(Microsoft.Bot.Builder.Calling.CallingBotServiceSettings)">
+            <summary>
+                Instantiates CallingBotService using provided settings
+            </summary>
+            <param name="settings"></param>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingBotService.ProcessCallbackAsync(System.String,System.Threading.Tasks.Task{System.IO.Stream})">
+            <summary>
+            Method responsible for processing the data sent with POST request to callback URL
+            </summary>
+            <param name="content">The content of request</param>
+            <param name="additionalData">The remaining part of request in case of multi part request</param>
+            <returns>Returns the response that should be sent to the sender of POST request</returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingBotService.ProcessIncomingCall(System.String)">
+            <summary>
+            Method responsible for processing the data sent with POST request to incoming call URL
+            </summary>
+            <param name="content">The content of request</param>
+            <returns>Returns the response that should be sent to the sender of POST request</returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingBotService.ProcessIncomingCallAsync(System.String)">
+            <summary>
+            Method responsible for processing the data sent with POST request to incoming call URL
+            </summary>
+            <param name="content">The content of request</param>
+            <returns>Returns the response that should be sent to the sender of POST request</returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingBotService.ProcessCallback(System.String,System.Threading.Tasks.Task{System.IO.Stream})">
+            <summary>
+            Method responsible for processing the data sent with POST request to callback URL
+            </summary>
+            <param name="content">The content of request</param>
+            <param name="additionalData">The remaining part of request in case of multi part request</param>
+            <returns>Returns the response that should be sent to the sender of POST request</returns>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.CallingBotServiceSettings.CallbackUrl">
+            <summary>
+            The url where the Callingcallbacks from Skype Bot platform will be sent. Needs to match the domain name of service and the route configured in BotController.
+            For example "https://testservice.azurewebsites.net/api/calling/callback"   
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingBotServiceSettings.LoadFromCloudConfiguration">
+            <summary>
+            Loads core bot library configuration from the cloud service configuration
+            </summary>
+            <returns>MessagingBotServiceSettings</returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingBotServiceSettings.Validate">
+            <summary>
+                Validates current bot configuration and throws BotConfigurationException if the configuration is invalid
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ParsedCallingRequest">
+            <summary>
+            The parsed calling request
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ParsedCallingRequest.ParseStatusCode">
+            <summary>
+            The status code indicating if the request parser was successful or not.
+            </summary>
+            <remarks>
+            <see cref="F:System.Net.HttpStatusCode.OK"/> if successful.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ParsedCallingRequest.Content">
+            <summary>
+            The calling request content.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ParsedCallingRequest.AdditionalData">
+            <summary>
+            The additional data when calling request has multipart content. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ParsedCallingRequest.SkypeChainId">
+            <summary>
+            The Skype chain Id, look at the documentation X-Microsoft-Skype-Chain-ID header value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ParsedCallingRequest.Faulted">
+            <summary>
+            Check if the parser is faulted on parsing incoming request.
+            </summary>
+            <returns> True if <see cref="T:Microsoft.Bot.Builder.Calling.CallingContext"/> is successful in processing the request; False otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.CallRequestType">
+            <summary>
+            The type of calling request
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.CallingContext">
+            <summary>
+            The context for this request. It is reponsible in parsing the calling request before calling into <see cref="T:Microsoft.Bot.Builder.Calling.ICallingBotService"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.CallingContext.Request">
+            <summary>
+            The calling request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingContext.#ctor(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Creates a new instance of calling context. 
+            </summary>
+            <param name="request"> The calling request.</param>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingContext.ProcessRequest(Microsoft.Bot.Builder.Calling.CallRequestType)">
+            <summary>
+            Process the calling request and returns <see cref="T:Microsoft.Bot.Builder.Calling.ParsedCallingRequest"/>.
+            </summary>
+            <param name="callType"> The type of calling request.</param>
+            <returns> the parsed calling request.</returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingContext.GenerateParsedResults(System.Net.HttpStatusCode,System.String,System.Threading.Tasks.Task{System.IO.Stream})">
+            <summary>
+            Generate the <see cref="T:Microsoft.Bot.Builder.Calling.ParsedCallingRequest"/> from the arguments
+            </summary>
+            <param name="statusCode">Status code indicating if the parsing was successful or not</param>
+            <param name="content">Content from the request. If the request had multipart content, the first part should be json and this will contain the first json content</param>
+            <param name="additionalData">If the request had multipart content, this will contain the additional data present after the first json content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingContext.ExtractSkypeChainId(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Extracts the X-Microsoft-Skype-Chain-Id header from the request that is used for correlating logs across different services for a call
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ICallingBot">
+            <summary>
+            The calling bot interface.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.CallingConversation">
+            <summary>
+            The top level composition root for calling SDK.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingConversation.RegisterCallingBot(System.Func{Microsoft.Bot.Builder.Calling.ICallingBotService,Microsoft.Bot.Builder.Calling.ICallingBot})">
+            <summary>
+            Register the instance of calling bot responsible for handling the calling requests.
+            </summary>
+            <param name="MakeCallingBot"> The factory method to make the calling bot.</param>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.CallingConversation.SendAsync(System.Net.Http.HttpRequestMessage,Microsoft.Bot.Builder.Calling.CallRequestType)">
+            <summary>
+            Process a calling request within the calling conversaion.
+            </summary>
+            <param name="toBot"> The calling request sent to the bot.</param>
+            <param name="callRequestType"> The type of calling request.</param>
+            <returns> The response from the bot.</returns>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.CallingModule">
+            <summary>
+            Autofac module for Calling components.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.Exceptions.BotConfigurationException">
+            <summary>
+                Exception type thrown when the bot configuration is invalid
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.Exceptions.BotConfigurationException.ConfigurationItemName">
+            <summary>
+                identifier of the configuration item which caused the failure (may stay null in case of global failures)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.Exceptions.BotConfigurationException.ConfigurationItemValue">
+            <summary>
+                value of the configuration item which caused the exception
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.Exceptions.BotConfigurationException.#ctor(System.String,System.String,System.String)">
+            <summary>
+                creates a new BotConfigurationException
+            </summary>
+            <param name="message">exception message</param>
+            <param name="itemName">relevant configuration item name</param>
+            <param name="itemValue">relevant configuration item value</param>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.Exceptions.BotConfigurationException.#ctor(System.String,System.Exception,System.String,System.String,System.Boolean)">
+            <summary>
+                wraps an exception into the BotConfigurationException
+            </summary>
+            <param name="message">exception message</param>
+            <param name="innerException">wrapped exception</param>
+            <param name="itemName">relevant configuration item name</param>
+            <param name="itemValue">relevant configuration item value</param>
+            <param name="extendForInternalExceptionRemark">
+                if true, message is extended with internal exception message and remark
+                to check it
+            </param>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.Exceptions.BotException">
+            <summary>
+                base exceptions for all exceptions thrown by the bots core library
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.Exceptions.BotException.#ctor">
+            <summary>
+                default constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.Exceptions.BotException.#ctor(System.String)">
+            <summary>
+                creates a new BotException
+            </summary>
+            <param name="message">exception message</param>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.Exceptions.BotException.#ctor(System.String,System.Exception,System.Boolean)">
+            <summary>
+                wraps an exception into the BotException
+            </summary>
+            <param name="message">exception message</param>
+            <param name="innerException">wrapped exception</param>
+            <param name="extendForInternalExceptionRemark">
+                if true, message is extended with internal exception message and remark
+                to check it
+            </param>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.ICallingBotService.OnIncomingCallReceived">
+            <summary>
+            Event raised when bot receives incoming call
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.ICallingBotService.OnAnswerCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of Answer action. If the operation was successful the call is established
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.ICallingBotService.OnHangupCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of Hangup action
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.ICallingBotService.OnPlayPromptCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of PlayPrompt action
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.ICallingBotService.OnRecognizeCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of Recognize action
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.ICallingBotService.OnRecordCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of Record action
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.ICallingBotService.OnRejectCompleted">
+            <summary>
+            Event raised when the bot gets the outcome of Reject action
+            </summary>
+        </member>
+        <member name="E:Microsoft.Bot.Builder.Calling.ICallingBotService.OnWorkflowValidationFailed">
+            <summary>
+            Event raised when specified workflow fails to be validated by Bot platform
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ICallingBotService.ProcessCallback(System.String,System.Threading.Tasks.Task{System.IO.Stream})">
+            <summary>
+            Method responsible for processing the data sent with POST request to callback URL
+            </summary>
+            <param name="content">The content of request</param>
+            <param name="additionalData">The remaining part of request in case of multi part request</param>
+            <returns>Returns the response that should be sent to the sender of POST request</returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ICallingBotService.ProcessCallbackAsync(System.String,System.Threading.Tasks.Task{System.IO.Stream})">
+            <summary>
+            Method responsible for processing the data sent with POST request to callback URL
+            </summary>
+            <param name="content">The content of request</param>
+            <param name="additionalData">The remaining part of request in case of multi part request</param>
+            <returns>Returns the response that should be sent to the sender of POST request</returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ICallingBotService.ProcessIncomingCall(System.String)">
+            <summary>
+            Method responsible for processing the data sent with POST request to incoming call URL
+            </summary>
+            <param name="content">The content of request</param>
+            <returns>Returns the response that should be sent to the sender of POST request</returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ICallingBotService.ProcessIncomingCallAsync(System.String)">
+            <summary>
+            Method responsible for processing the data sent with POST request to incoming call URL
+            </summary>
+            <param name="content">The content of request</param>
+            <returns>Returns the response that should be sent to the sender of POST request</returns>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ActionBase">
+            <summary>
+            Base class for various actions
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ActionBase.OperationId">
+            <summary>
+            An operation Id needs to be specified by customer so that they can correlate outcome to the action.
+            This becomes necessary when multiple actions are specified in one response body
+            
+            Note: this is the first serialized field since it has the lowest order. By default Json.net starts 
+            ordering from -1.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ActionBase.Action">
+            <summary>
+            The type of action. Various concrete action classes specify their name.
+            This is used to deserialize a list of actions from JSON to their respective concrete classes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ActionBase.IsStandaloneAction">
+            <summary>
+            Flag to indicate whether this action must not be specified along with any other actions.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ActionBase._additionalData">
+            <summary>
+            similar to WCF IExtensibleDataObject, any data not expected on the wire is deserialized into this collection.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ActionConverter">
+            <summary>
+            By default Json.net doesn't know how to deserialize JSON data into Interfaces or abstract classes.
+            This custom Converter helps deserialize "actions" specified in JSON into respective concrete "action" classes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.AgentContactNotification">
+            <summary>
+            Message type for notifying agents that a user has added or removed
+            them.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Answer">
+            <summary>
+            This is the action which customers can specify to indicate that the server call agent should accept the call.
+            The media is hosted by the server call agent
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Answer.AcceptModalityTypes">
+            <summary>
+            The modality types the application will accept.  If none are specified,
+            audio-only is assumed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.AnswerOutcome">
+            <summary>
+            This is the outcome of the "answer" action. This is conveyed to the customer as POST to the customer CallBack Url.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.BaseMessage">
+            <summary>
+            Base message wrapper for all API messages.  The format is:
+            {
+               type: (type-of-message),
+               to: (to-user-MRI),
+               from: (from-user-MRI),
+               (optional additional-message-specific-properties),
+               (optional additional-message-specific-properties),
+               (optional additional-message-specific-properties),
+            }
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.BaseMessage.MriWeakRegex">
+            <summary>
+            Weak MRI validation.  There are other more robust MRI checkers but they
+            can't be refereneced here.  This is just a weak check to make sure the
+            format is 1-8 digits followed by a colon followed by 1-512 characters.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.CallbackLink">
+            <summary>
+            Links for callbacks to the bot. For IVR calling only Callback has to be specified. For more advanced scenarios
+            like real-time media calling Notification has to be included.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.CallbackLink.Callback">
+            <summary>
+            Uri for the callbacks to the bot.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.CallbackLink.Notification">
+            <summary>
+            Uri for the notifications to the bot. Needed only for advanced scenarios like real-time media calling.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ChoiceOutcome">
+            <summary>
+            This is a part of the "recognize" action outcome. This is specified if the customer had specified any recognition options.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ChoiceOutcome.CompletionReason">
+            <summary>
+            Completion reason of the recognition operation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ChoiceOutcome.ChoiceName">
+            <summary>
+            Choice that was recognized (if any)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.CollectDigits">
+            <summary>
+            This is part of the "recognize" action. If the customer wants to collect digits - this needs to be specified.
+            Ex: enter 5 digit zip code followed by pound sign.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.CollectDigits.MaxNumberOfDtmfs">
+            <summary>
+            Maximum number of digits expected
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.CollectDigits.StopTones">
+            <summary>
+            Stop tones specified to end collection
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.CollectDigitsOutcome">
+            <summary>
+            This is a part of the "recognize" action outcome. This is specified if the customer had specified any collectDigits operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.CollectDigitsOutcome.CompletionReason">
+            <summary>
+            Completion reason
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.CollectDigitsOutcome.Digits">
+            <summary>
+            Digits collected ( if any )
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Conversation">
+            <summary>
+            This defines the set of the properties that define a conversation. 
+            A conversation includes participants, modalities etc.
+            
+            This object is specified in the body of the OnIncomingCall request sent to the client.
+            This object is used to represent both incoming and outgoing conversations.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Conversation.Participants">
+            <summary>
+            List of participants in the conversation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Conversation.IsMultiparty">
+            <summary>
+            Indicates whether a call is a group call
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Conversation.ThreadMessageId">
+            <summary>
+            Identifies a specfic topic within a chat thread.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Conversation.ThreadId">
+            <summary>
+            Id for the chat thread
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Conversation.PresentedModalityTypes">
+            <summary>
+            Different modalities which are presented in the call
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Conversation.CallState">
+            <summary>
+            Current state of the Call
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Conversation.Subject">
+            <summary>
+            Subject of the call 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ConversationBase">
+            <summary>
+            This base class defines a subset of properties which define a conversation.
+            Conversation class derives from this and adds more properties - they are passed in OnIncomingCall
+            ConversationResultBase class derives from this and adds more properties - they are passed in POST to callback Url to list operation outcomes
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ConversationBase.Id">
+            <summary>
+            Conversation Id 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ConversationBase.AppId">
+            <summary>
+            AppId of the customer ( if any )
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ConversationBase.AppState">
+            <summary>
+            Opaque string to facilitate app developers to pass their custom data in this field. 
+            This field is the same value that was passed 'response' by the customer.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ConversationBase.Links">
+            <summary>
+            Any links we want to surface to the customer for them to invoke us back on.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ConversationResult">
+            <summary>
+            Once we have peformed the "actions" requested by the customer, we POST back to customer callback Url with this "result" object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ConversationResult.OperationOutcome">
+            <summary>
+            a. We would always return the outcome :
+                i. of the last operation if all operations were performed successfully OR
+                ii. outcome of first failed operation 
+            b. If any operation fails, then we immediately callback the customer webservice with the outcome, 
+                and skip processing other operations defined in the "actions" list. 
+            c. If no callback link is provided, then we keep performing all specified operations, until 
+                i. we hit the end - then we hangup (if call connected to server call agent)
+                ii. We hit a failure - then we hangup (if call connected to server call agent)
+                iii. We hit a max call duration timeout - then we hangup (if call connected to server call agent)
+            d. Any validation failure of this response object would result in us returning
+               the WorkflowValidationOutcome object to the customer's callback url and not proceed with any defined actions.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ConversationResult.CallState">
+            <summary>
+            Current state of the Call
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Hangup">
+            <summary>
+            This is the action which customers can specify to indicate that the server call agent should hangup the call.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.HangupOutcome">
+            <summary>
+            This is the outcome of the "hangup" action. This is conveyed to the customer as POST to the customer CallBack Url (if specified).
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.OperationOutcomeBase">
+            <summary>
+            Base class for various "action(s)" outcome(s)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.OperationOutcomeBase.Type">
+            <summary>
+            The type of outcome. Various concrete outcome classes specify their name.
+            This is used to deserialize (at the customer end) a list of outcomes from JSON to their respective concrete classes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.OperationOutcomeBase.Id">
+            <summary>
+            The operation id which was specified when customer specified an action
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.OperationOutcomeBase.Outcome">
+            <summary>
+            Outcome of the operation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.OperationOutcomeBase.FailureReason">
+            <summary>
+            reason for failure (if any)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.OperationOutcomeConverter">
+            <summary>
+            By default Json.net doesn't know how to deserialize JSON data into Interfaces or abstract classes.
+            This custom Converter helps deserialize "operationOutcomes" specified in JSON into respective concrete "OperationOutcome" classes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Participant">
+            <summary>
+            This class describes a participant.
+            This can be a participant in any modality in a 2 or multi-party conversation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Participant.Identity">
+            <summary>
+            MRI of the participant .ex : 2:+14258828080 or '8:alice' 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Participant.DisplayName">
+            <summary>
+            Display name of participant if received from the controllers
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Participant.LanguageId">
+            <summary>
+            Participant language. This property is optional and only passed if
+            participant language is known.
+            Examples of valid values are null, "en", "en-US".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Participant.Originator">
+            <summary>
+            Is this participant the originator of the conversation
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.PlayPrompt">
+            <summary>
+            This is the action which customers can specify to indicate that the server call agent should play/tts out prompt(s).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.PlayPrompt.Prompts">
+            <summary>
+            List of prompts to play out
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.PlayPromptOutcome">
+            <summary>
+            This is the outcome of the "playPrompt" action. This is conveyed to the customer as POST to the customer CallBack Url.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Prompt">
+            <summary>
+            This class represents a single prompt
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Prompt.Value">
+            <summary>
+            This can be :
+            1) Text - specifying the text to be tts'd
+            2) Empty if just silence to be played out
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Prompt.FileUri">
+            <summary>
+            Uri of any media file to be played out
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Prompt.Voice">
+            <summary>
+            The voice to use to tts out if "value" is text. Default : Male
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Prompt.Culture">
+            <summary>
+            The culture to use to tts out if "value" is text. Default : en-US
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Prompt.SilenceLengthInMilliseconds">
+            <summary>
+            Any silence to be played out before playing "value". 
+            If "value" is null - this field must be a valid > 0 value.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Prompt.Emphasize">
+            <summary>
+            Whether to emphasize when tts'ing out - if "value" is text. Default : false
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Prompt.SayAs">
+            <summary>
+            Whether to customize pronunciation when tts'ing out - if "value" is text. Default : none
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecognitionOption">
+            <summary>
+            This is part of the "recognize" action. If the customer wants to speech/dtmf choice based recognition - this needs to be specified.
+            Ex: say "Sales" or enter 1 for Sales department
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecognitionOption.Name">
+            <summary>
+            Name of the choice. Once a choice matches, this name is conveyed back to the customer in the outcome.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecognitionOption.SpeechVariation">
+            <summary>
+            Speech variations which form the grammar for the choice. 
+            Ex: Name : "Yes" , SpeechVariation : {"Yes", "yeah", "ya", "yo" }
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecognitionOption.DtmfVariation">
+            <summary>
+            Dtmf variations for the choice. 
+            Ex: Name : "Yes" , DtmfVariation : {'1'}
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Recognize">
+            <summary>
+            This is the action which customers can specify to indicate that the server call agent should perform speech or dtmf recognition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Recognize.PlayPrompt">
+            <summary>
+            Promt to played out (if any) before recognition starts. 
+            Customers can choose to specify "playPrompt" action separately or 
+            specify as part of "recognize" - mostly all recognitions are preceeded by a prompt
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Recognize.BargeInAllowed">
+            <summary>
+            Are customers allowed to enter choice before prompt finishes. Default : true.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Recognize.Culture">
+            <summary>
+            Culture of Speech Recognizer to use. Default : en-US.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Recognize.InitialSilenceTimeoutInSeconds">
+            <summary>
+            Maximum initial silence allowed from the time we start the recognition operation 
+            before we timeout and fail the operation. 
+            
+            if we are playing a prompt, then this timer starts after prompt finishes.
+            
+            Default : 5 secs
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Recognize.InterdigitTimeoutInSeconds">
+            <summary>
+            Mamimum allowed time between digits if we are doing dtmf based choice recognition or CollectDigits recognition
+            
+            Default : 1 sec
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Recognize.Choices">
+            <summary>
+            List of choices to recognize against. Choices can be speech or dtmf based.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Recognize.CollectDigits">
+            <summary>
+            There is no choice based recognition. Rather collect all digits entered by user.
+            
+            Either CollectDigits or Choices must be specified. Both can not be specified.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecognizeOutcome">
+            <summary>
+            This is the outcome of the "recognize" action. This is conveyed to the customer as POST to the customer CallBack Url.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecognizeOutcome.ChoiceOutcome">
+            <summary>
+            Outcome of the Choice based recognition ( if any was specified in the action )
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecognizeOutcome.CollectDigitsOutcome">
+            <summary>
+            Outcome of the collectDigits recognition ( if any was specified in the action )
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Record">
+            <summary>
+            This is the action which customers can specify to indicate that the server call agent should start recording user speech.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Record.PlayPrompt">
+            <summary>
+            Promt to played out (if any) before recording starts. 
+            Customers can choose to specify "playPrompt" action separately or 
+            specify as part of "record" - mostly all recordings are preceeded by a prompt
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Record.MaxDurationInSeconds">
+            <summary>
+            Maximum duration of recording . Default : 180 secs
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Record.InitialSilenceTimeoutInSeconds">
+            <summary>
+            Maximum initial silence allowed from the time we start the recording operation 
+            before we timeout and fail the operation. 
+            
+            Default : 5
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Record.MaxSilenceTimeoutInSeconds">
+            <summary>
+            Maximum allowed silence once the user has started speaking before we conclude 
+            the user is done recording.
+            
+            Default : 1
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Record.RecordingFormat">
+            <summary>
+            The format is which the recording is expected.
+            
+            Default : wma
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Record.PlayBeep">
+            <summary>
+            If specified "true", then we would play a beep before starting recording operation
+            
+            Default : true
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Record.StopTones">
+            <summary>
+            Stop patterns which users can punch to end recording. 
+            
+            Ex: " Press pound when done recording" 
+            Or "Press 11 when done recording".
+            
+            Note: each stop tone is a string, since the application might 
+            potentially want to stop recording based on when user presses # or 11.
+            Thus multiple digits together might constitute a single stop tone pattern. 
+            Hence it is represented as a string and not an int.
+            
+            Default : none
+            
+            TODO : change to string from char later when scenario emerges
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecordOutcome">
+            <summary>
+            This is the outcome of the "record" action. This is conveyed to the customer as POST to the customer CallBack Url. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecordOutcome.CompletionReason">
+            <summary>
+            Completion reason
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecordOutcome.LengthOfRecordingInSecs">
+            <summary>
+            If recording was successful, this indicates length of recorded audio
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RecordOutcome.Format">
+            <summary>
+            Media encoding format of the recording.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Reject">
+            <summary>
+            This is the action which customers can specify to indicate that the server call agent should reject the call.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.RejectOutcome">
+            <summary>
+            This is the outcome of the "reject" action. This is conveyed to the customer as POST to the customer CallBack Url (if specified).
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidActions">
+            <summary>
+            This is a helper class for validating actions specified by customers
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidActions.AnswerAction">
+            <summary>
+            AnswerAction
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidActions.HangupAction">
+            <summary>
+            HangupAction
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidActions.PlayPromptAction">
+            <summary>
+            PlayPromptAction
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidActions.RecordAction">
+            <summary>
+            RecordAction
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidActions.RecognizeAction">
+            <summary>
+            RecognizeAction
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidActions.RejectAction">
+            <summary>
+            RejectAction
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidActions.actionOrder">
+            <summary>
+            Dictionary of valid actions and their relative order
+            +ve order reflect operations after and including call acceptance
+            -ve order reflect operations pre-call answering . ex: reject/redirect/sequentialRing
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidDtmfs">
+            <summary>
+            This is a helper class for validating dtmfs specified in strings
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidDtmfs.ValidDtmfSet">
+            <summary>
+            list of valid dtmfs
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidOutcomes">
+            <summary>
+            This is a helper class for validating outcomes. This can be used by customers or by us (before we send the outcome on the wire) 
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidOutcomes.AnswerOutcome">
+            <summary>
+            AnswerOutcome
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidOutcomes.HangupOutcome">
+            <summary>
+            HangupOutcome
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidOutcomes.RejectOutcome">
+            <summary>
+            RejectOutcome
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidOutcomes.PlayPromptOutcome">
+            <summary>
+            PlayPromptOutcome
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidOutcomes.RecordOutcome">
+            <summary>
+            RecordOutcome
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidOutcomes.RecognizeOutcome">
+            <summary>
+            RecognizeOutcome
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidOutcomes.WorkflowValidationOutcome">
+            <summary>
+            WorkflowValidationOutcome
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.ValidOutcomes.validOutcomes">
+            <summary>
+            list of valid outcomes
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Workflow">
+            <summary>
+            This class contains the workflow the customer sent for the OnInComingCall POST or any subsequent POST to their callback url.
+            Basically this workflow defines the set of actions, the customer wants us to perform and then callback to them.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Workflow.Links">
+            <summary>
+            Callback link to call back the customer on, once we have performed the set of actions.
+            
+            Note : 
+            a. We would always return the outcome :
+                i. of the last operation if all operations were performed successfully OR
+                ii. outcome of first failed operation 
+            b. If any operation fails, then we immediately callback the customer webservice with the outcome, 
+                and skip processing other operations defined in the "actions" list. 
+            c. If no callback link is provided, then we keep performing all specified operations, until 
+                i. we hit the end - then we hangup (if call connected to server call agent)
+                ii. We hit a failure - then we hangup (if call connected to server call agent)
+                iii. We hit a max call duration timeout - then we hangup (if call connected to server call agent)
+            d. Any validation failure of this workflow object would result in us returning
+               the workflowValidationOutcome object to the customer's callback url and not proceed with any defined actions.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Workflow.Actions">
+            <summary>
+            List of actions to perform . ex : playPrompt, record, hangup
+            </summary>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Workflow.AppState">
+            <summary>
+            Opaque string to facilitate app developers to pass their custom data in this field. 
+            This field is echo'd back in the 'result' POST for this 'workflow'.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Workflow.Validate">
+            <summary>
+            Validate the WorkFlow
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.Workflow.Validate(System.Boolean)">
+            <summary>
+            Validate the WorkFlow
+            </summary>
+            <param name="expectEmptyActions">Allow Actions to be empty</param>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Contracts.WorkflowValidationOutcome">
+            <summary>
+            If the customer's "response" fails validation, this is the outcome conveyed to the customer as POST to the customer CallBack Url.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.ApplicationState.Validate(System.String)">
+            <summary>
+            helper method to validate appState
+            </summary>
+            <param name="appState"></param>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState">
+            <summary>
+            The various possible states of a AudioVideoCall.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Unknown">
+            <summary>
+            Unknown not recognized.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Idle">
+            <summary>
+            Initial state
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Incoming">
+            <summary>
+            The call has just been received
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Establishing">
+            <summary>
+            The call establishment is in progress after initiating or accepting the call
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Established">
+            <summary>
+            The call is established
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Hold">
+            <summary>
+            The call is on Hold
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Unhold">
+            <summary>
+            The call is Unhold
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Transferring">
+            <summary>
+            The call has initiated a transfer
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Redirecting">
+            <summary>
+            The call has initiated a redirection
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Terminating">
+            <summary>
+            The call is terminating
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.CallState.Terminated">
+            <summary>
+            The call has terminated
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Culture">
+            <summary>
+            Cultures we support for recognition or prompt playing
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Culture.Unknown">
+            <summary>
+            Unknown not recognized.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.DigitCollectionCompletionReason">
+            <summary>
+            Reason for completion of Digit Collection Operation
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.DigitCollectionCompletionReason.Unknown">
+            <summary>
+            Unknown not recognized.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.DigitCollectionCompletionReason.InitialSilenceTimeout">
+            <summary>
+            The max time period by which user is supposed to start punching in digits has elapsed.
+            
+            This results in a "failed" DigitCollection Attempt
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.DigitCollectionCompletionReason.InterdigitTimeout">
+            <summary>
+            The maximum time period between user punching in successive digits has elapsed.
+            
+            This results in a "successful" DigitCollection Attempt and we return the digits collected till then.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.DigitCollectionCompletionReason.CompletedStopToneDetected">
+            <summary>
+            Digit collection attempt was stopped by user punching in a stop tone.
+            
+            This results in a "successful" DigitCollection Attempt and we return the digits collected till then. 
+            The stopTone(s) detected are excluded from the digits we return.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.DigitCollectionCompletionReason.CallTerminated">
+            <summary>
+            The underlying call was terminated
+            
+            This results in a "failed" DigitCollection Attempt
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.DigitCollectionCompletionReason.TemporarySystemFailure">
+            <summary>
+            Misc System Failure
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.JSONConstants.ContentType">
+            <summary>
+            JSON Content Type
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.JsonCreationConverter`1">
+            <summary>
+            Helper class to use for deserializing where the concrete classes are determined by checking 
+            properties in the JSON data.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.JsonCreationConverter`1.Create(System.Type,Newtonsoft.Json.Linq.JObject)">
+            <summary>Create an instance of objectType, based properties in the JSON object</summary>
+            <param name="objectType">type of object expected</param>
+            <param name="jsonObject">contents of JSON object that will be deserialized</param>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.JsonCreationConverter`1.CanConvert(System.Type)">
+            <summary>Determines if this converted is designed to deserialization to objects of the specified type.</summary>
+            <param name="objectType">The target type for deserialization.</param>
+            <returns>True if the type is supported.</returns>
+        </member>
+        <member name="P:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.JsonCreationConverter`1.CanWrite">
+            <summary>
+            Let Newtonsoft.Json use the default writer
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.JsonCreationConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>Parses the json to the specified type.</summary>
+            <param name="reader">Newtonsoft.Json.JsonReader</param>
+            <param name="objectType">Target type.</param>
+            <param name="existingValue">Ignored</param>
+            <param name="serializer">Newtonsoft.Json.JsonSerializer to use.</param>
+            <returns>Deserialized Object</returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.JsonCreationConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>Serializes to the specified type</summary>
+            <param name="writer">Newtonsoft.Json.JsonWriter</param>
+            <param name="value">Object to serialize.</param>
+            <param name="serializer">Newtonsoft.Json.JsonSerializer to use.</param>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.RecordingDuration">
+            <summary>
+            Minimum max recording duration
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.NumberOfStopTones">
+            <summary>
+            max number of stop tones allowed
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.SilenceTimeout">
+            <summary>
+             Maximum allowed silence once the user has started speaking before we conclude 
+             the user is done recording.
+             </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.InitialSilenceTimeout">
+            <summary>
+            Maximum initial silence allowed from the time we start the operation 
+            before we timeout and fail the operation. 
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.InterDigitTimeout">
+            <summary>
+            Mamimum allowed time between digits if we are doing dtmf based choice recognition or CollectDigits recognition
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.NumberOfDtmfsExpected">
+            <summary>
+            Maximum number of digits expected
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.NumberOfSpeechVariations">
+            <summary>
+            Maximum number of speech variations for a choice
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.SilentPromptDuration">
+            <summary>
+            max silent prompt duration
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.LengthOfTTSText">
+            <summary>
+            Maximum number of speech variations for a choice
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.AppStateLength">
+            <summary>
+            Maximum length of ApplicationState specified
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.MaxDownloadedFileSizeBytes">
+            <summary>
+            Max size of played prompt file.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.MediaConfigurationLength">
+            <summary>
+            Max size of MediaConfiguration in AnswerAppHostedMedia action.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MaxValues.FileDownloadTimeout">
+            <summary>
+            Timeout downloading media file when constructing speech prompts.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MinValues.RecordingDuration">
+            <summary>
+            Minimum allowed recording duration.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MinValues.SilenceTimeout">
+            <summary>
+             Minimum allowed silence once the user has started speaking before we conclude 
+             the user is done recording.
+             </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MinValues.InitialSilenceTimeout">
+            <summary>
+            Minimum initial silence allowed from the time we start the operation 
+            before we timeout and fail the operation. 
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MinValues.InterdigitTimeout">
+            <summary>
+            Mamimum allowed time between digits if we are doing dtmf based choice recognition or CollectDigits recognition
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MinValues.NumberOfDtmfsExpected">
+            <summary>
+            Maximum number of digits expected
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.ModalityType">
+            <summary>
+            List of supported modality types
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MultiPartConstants.RecordingContentDispositionName">
+            <summary>
+            content disposition name to use for the binary recorded audio (in a multipart response)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MultiPartConstants.ResultContentDispositionName">
+            <summary>
+            content disposition name to use for the result object (in a multipart response)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MultiPartConstants.WavMimeType">
+            <summary>
+            mime type for wav
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MultiPartConstants.WmaMimeType">
+            <summary>
+            mime type for wma
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.MultiPartConstants.Mp3MimeType">
+            <summary>
+            mime type for mp3
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Outcome">
+            <summary>
+            Possible outcomes 
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Outcome.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Outcome.Failure">
+            <summary>
+            Failure
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecognitionCompletionReason">
+            <summary>
+            Reason for completion of Recognition(speech/dtmf) Operation
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecognitionCompletionReason.Unknown">
+            <summary>
+            Unknown not recognized.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecognitionCompletionReason.InitialSilenceTimeout">
+            <summary>
+            The maximum initial silence that can be tolerated had been reached
+            
+            This results in a "failed" Recognition Attempt
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecognitionCompletionReason.IncorrectDtmf">
+            <summary>
+            The Recognition completed because the user punched in wrong dtmf which was not amongst the possible 
+            choices. 
+            
+            We would only look for dtmfs when dtmf recognition is requested. Thus for pure speech menus, this
+            completion reason would never be possible.
+            
+            This results in a "failed" Recognition Attempt
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecognitionCompletionReason.InterdigitTimeout">
+            <summary>
+            The maximum time period between user punching in successive digits has elapsed.
+            
+            We would only look for dtmfs when dtmf recognition is requested. Thus for pure speech menus, this
+            completion reason would never be possible.
+            
+            This results in a "failed" Recognition Attempt.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecognitionCompletionReason.SpeechOptionMatched">
+            <summary>
+            The recognition successfully matched a Grammar option
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecognitionCompletionReason.DtmfOptionMatched">
+            <summary>
+            The recognition successfully matched a Dtmf option
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecognitionCompletionReason.CallTerminated">
+            <summary>
+            The underlying call was terminated
+            
+            This results in a "failed" Recognition Attempt
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecognitionCompletionReason.TemporarySystemFailure">
+            <summary>
+            Misc System Failure
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingCompletionReason">
+            <summary>
+            Reason for completion of Recording Operation
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingCompletionReason.Unknown">
+            <summary>
+            Unknown not recognized.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingCompletionReason.InitialSilenceTimeout">
+            <summary>
+            The maximum initial silence that can be tolerated had been reached
+            
+            This results in a "failed" Recording Attempt
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingCompletionReason.MaxRecordingTimeout">
+            <summary>
+            The maximum duration that can be allowed for recording had been reached
+            
+            This results in a "successful" Recording Attempt
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingCompletionReason.CompletedSilenceDetected">
+            <summary>
+            Recording was completed as detected by silence after a talk spurt
+            
+            This results in a "successful" Recording Attempt
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingCompletionReason.CompletedStopToneDetected">
+            <summary>
+            Recording was completed by user punching in a stop tone
+            
+            This results in a "successful" Recording Attempt
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingCompletionReason.CallTerminated">
+            <summary>
+            The underlying call was terminated
+            
+            This results in a "successful" Recording Attempt if there were any bytes recorded
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingCompletionReason.TemporarySystemFailure">
+            <summary>
+            Misc System Failure
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingFormat">
+            <summary>
+            Encoding format to be used for recording
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingFormat.Unknown">
+            <summary>
+            Unknown not recognized.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingFormat.Wma">
+            <summary>
+            WMA
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingFormat.Wav">
+            <summary>
+            WAV
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.RecordingFormat.Mp3">
+            <summary>
+            MP3
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.ResolutionFormat">
+            <summary>
+            List of supported video resolution formats
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.ResolutionFormat.Unknown">
+            <summary>
+            Unknown not recognized.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.SayAs">
+            <summary>
+            Difference SayAs attributes we support for tts
+            </summary>
+        </member>
+        <member name="F:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.SayAs.Unknown">
+            <summary>
+            Unknown not recognized.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Serializer">
+            <summary>
+            Helper class for serializing/deserializing
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Serializer.SerializeToJson(System.Object,System.Boolean)">
+            <summary>
+            Serialize input object to string
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Serializer.SerializeToJToken(System.Object)">
+            <summary>
+            Serialize to JToken
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Serializer.DeserializeFromJson``1(System.String)">
+            <summary>
+            Deserialize input string to object
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Serializer.DeserializeFromJToken``1(Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Deserialize from JToken
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="jToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Serializer.GetSerializerSettings(Newtonsoft.Json.Formatting)">
+            <summary>
+            Returns default serializer settings.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.StringEnumConverterWithDefault`1">
+            <summary>
+            Specialized StringEnumConverter that returns the default enum value instead of throwing if the string
+            cannot be matched to an enum value during deserialization.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Utils">
+            <summary>
+            Utils class
+            </summary>
+        </member>
+        <member name="M:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.Utils.AssertArgument(System.Boolean,System.String,System.Object[])">
+            <summary>
+            Argument checker
+            </summary>
+            <param name="condition"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:Microsoft.Bot.Builder.Calling.ObjectModel.Misc.VoiceGender">
+            <summary>
+            Voice genders we support for tts
+            </summary>
+        </member>
+    </members>
+</doc>

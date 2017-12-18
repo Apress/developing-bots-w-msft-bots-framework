@@ -1,0 +1,39 @@
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Bot Application1.dll.config
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Bot Application1.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Bot Application1.pdb
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Autofac.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Chronic.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.Bot.Builder.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.Bot.Connector.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.Rest.ClientRuntime.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Newtonsoft.Json.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\System.Net.Http.Formatting.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\System.Web.Http.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\System.Web.Http.WebHost.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Autofac.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.Bot.Builder.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.Bot.Connector.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.IdentityModel.Protocol.Extensions.pdb
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.Rest.ClientRuntime.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\Newtonsoft.Json.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\System.Net.Http.Formatting.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\System.Web.Http.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\System.Web.Http.WebHost.xml
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\obj\Release\DoctorAppointmentBot.csprojResolveAssemblyReference.cache
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\obj\Release\Bot Application1.dll
+C:\BotFramework\Code\chapter2-dotnet\Dr.Bot\DoctorBot\DoctorBot\obj\Release\Bot Application1.pdb

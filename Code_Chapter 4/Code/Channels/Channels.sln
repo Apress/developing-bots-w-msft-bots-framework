@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailChannel", "EmailChannel\EmailChannel.csproj", "{3EAAC22A-6316-42B5-86AB-17AA134632F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackChannel", "SlackChannel\SlackChannel.csproj", "{3D4D5BC9-0EB0-4ABC-995E-979C6A8B832B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EAAC22A-6316-42B5-86AB-17AA134632F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAAC22A-6316-42B5-86AB-17AA134632F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAAC22A-6316-42B5-86AB-17AA134632F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAAC22A-6316-42B5-86AB-17AA134632F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4D5BC9-0EB0-4ABC-995E-979C6A8B832B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4D5BC9-0EB0-4ABC-995E-979C6A8B832B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4D5BC9-0EB0-4ABC-995E-979C6A8B832B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4D5BC9-0EB0-4ABC-995E-979C6A8B832B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19DA04DB-6125-40C5-ADC0-845355606234}
+	EndGlobalSection
+EndGlobal
